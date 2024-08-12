@@ -1,0 +1,17 @@
+@font-face {
+    font-family:'iransans';
+    src: url('/myApp/public/iransansx/IRANSansXRegular.ttf') format('tff');
+    font-display: swap;
+  }
+html{
+  font-family:'iransans';
+  height: 100%;
+
+
+}
+body{
+height:100%
+}
+.submit-button{
+  transform:translateX(-50%)
+}
