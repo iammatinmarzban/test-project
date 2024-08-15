@@ -63,11 +63,11 @@ function App() {
           ))}
         </Box>
       </Box>
-      <Box sx={{ width: 1 }}>
+      <Box sx={{ width: 1, display: "flex", justifyContent: "center" }}>
         <Button
           sx={{
             position: "fixed",
-            bottom: "20px",
+            bottom: "10px",
             width: "90%",
             height: "56px",
             bgcolor: "#6366F1",
@@ -76,7 +76,7 @@ function App() {
             py: "16px",
           }}
           variant="contained"
-          className="sumbit-button"
+          className="submit-button"
         >
           <Typography
             variant="button"

@@ -1,6 +1,6 @@
 @font-face {
     font-family:'iransans';
-    src: url('/myApp/public/iransansx/IRANSansXRegular.ttf') format('tff');
+    src: url('/myApp/public/iransansx/IRANSansXBold.ttf') format('tff');
     font-display: swap;
   }
 html{
@@ -12,6 +12,25 @@ html{
 body{
 height:100%
 }
-.submit-button{
-  transform:translateX(-50%)
+/* .submit-button{
+  transform:translate(50%,50%)
+} */
+.driver-card-click{
+
+  transition-duration: 700ms;
+  transform:translateX(-84px);
+}
+
+input {
+  border:none;
+  width:100%;
+  box-sizing: border-box;
+  padding:12px 16px;
+  border-radius:16px;
+  background-color:white;
+  color:#B3B5BD;
+  font-size:16px;
+  font-weight:500;
+
+
 }
