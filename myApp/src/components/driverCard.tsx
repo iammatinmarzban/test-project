@@ -2,15 +2,16 @@ import { Avatar, Box, Button, SvgIcon, Typography } from "@mui/material";
 import icon from "/Users/Hkr/Desktop/test project/myApp/src/assets/icon.svg";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import { useState } from "react";
+import { editDriverProps } from "./editDriver";
 
-interface drivercard {
-  name: string;
-  picture: string | null;
-  codeMeli: number;
-  phonenumber: string;
-}
+// interface drivercard {
+//   name: string;
+//   picture: string | null;
+//   codeMeli: number;
+//   phonenumber: string;
+// }
 
-const driverCard = (props: drivercard) => {
+const driverCard = (props: editDriverProps) => {
   const [isClicked, setIsClicked] = useState(false);
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
@@ -111,12 +112,12 @@ const driverCard = (props: drivercard) => {
               {props.name}
             </Typography>
             <Typography sx={{ color: "#777986", fontSize: "13px" }}>
-              {props.phonenumber}
+              {props.birthdayDate}
             </Typography>
           </Box>
           <Box className="down">
             <Typography sx={{ color: "#777986", fontSize: "13px", mt: "8px" }}>
-              کد ملی : {props.codeMeli}
+              کد ملی : {props.codemeli}
             </Typography>
           </Box>
         </Box>

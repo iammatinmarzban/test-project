@@ -15,8 +15,18 @@ import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutli
 import alt from "../assets/imageholder.png";
 
 import cities from "../cities.json";
+export interface editDriverProps {
+  pictureUrl: string | null;
+  codemeli: number;
+  name: string;
+  lastName: string;
+  birthdayDate: number;
+  city: string;
+  gender: boolean;
+  status: boolean;
+}
 
-const editDriver = () => {
+const editDriver = (props: editDriverProps) => {
   return (
     <Container
       sx={{
@@ -53,7 +63,10 @@ const editDriver = () => {
           className="picutre-remove-add-show"
         >
           <Box>
-            <img src={alt} alt="altpicnotload" />
+            <img
+              src={`${props.pictureUrl}?${props.pictureUrl}:${alt}`}
+              alt="altpicnotload"
+            />
           </Box>
           <Box
             sx={{
@@ -105,34 +118,6 @@ const editDriver = () => {
               <Typography sx={{ fontSize: "12px" }}>ویرایش تصویر</Typography>
             </Button>
           </Box>
-          {/* <Box>
-            <Button
-              sx={{
-                bgcolor: "#D8D9FF",
-                fill: "#6366F1 ",
-                color: "#6366F1",
-                width: "270px",
-                height: "48px",
-                borderRadius: "16px",
-              }}
-              className="upload-image"
-            >
-              <SvgIcon sx={{ width: "20px", height: "20px" }}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                  --!Font Awesome Free 6.6.0 by @fontawesome -
-                  https://fontawesome.com License -
-                  https://fontawesome.com/license/free Copyright 2024 Fonticons,
-                  Inc.
-                  <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
-                </svg>
-              </SvgIcon>
-              <Typography sx={{ fontSize: "16px" }}>بارگذاری تصویر</Typography>
-            </Button>
-            <Button>
-              <SvgIcon></SvgIcon>
-              <Typography></Typography>
-            </Button>
-          </Box> */}
         </Box>
         <Box
           className="all-input-feilds"
@@ -147,25 +132,14 @@ const editDriver = () => {
             className="code-meli-input"
             sx={{ w: 1, display: "flex", gap: "8px", alignItems: "baseline" }}
           >
-            <input placeholder="کدملی" />
-
-            {/* <ThemeProvider theme={theme}>
-              <TextField
-                dir="rtl"
-                placeholder="کدملی"
-                sx={{
-                  border: 0,
-                  bgcolor: "white",
-                  width: "267px",
-                  height: "48px",
-                  p: "12px 16px",
-                  borderRadius: "16px",
-                  borderWidth: 0,
-                  borderColor: "white",
-                }}
-                required
-              />
-            </ThemeProvider> */}
+            <label htmlFor="codemeli">کد ملی</label>
+            <input
+              value={props.codemeli}
+              id="codemeli"
+              required
+              minLength={10}
+              maxLength={10}
+            />
 
             <Button
               sx={{
@@ -179,19 +153,12 @@ const editDriver = () => {
               <Typography>استعلام</Typography>
             </Button>
           </Box>
-          {/* <GlobalStyles
-            styles={{
-              input: { border: "none", widht: "390px", height: "48px" },
-            }}
-          />
-          <input placeholder="تست" /> */}
-          {/* <TextField dir="rtl" sx={{ width: 1 }} /> */}
-          {/* <TextField dir="rtl" sx={{ width: 1 }} />
-          <TextField dir="rtl" sx={{ width: 1 }} /> */}
-
-          <input placeholder="نام" />
-          <input placeholder="نام خانوادگی" />
-          <input placeholder="تاریخ تولد" />
+          <label htmlFor="name">نام </label>
+          <input value={props.name} id="name" />
+          <label htmlFor="lastName">نام خانوادگی</label>
+          <input value={props.lastName} id="lasName" />
+          <label htmlFor="birthDate">تاریخ تولد</label>
+          <input value={props.birthdayDate} id="birthDate" />
 
           <div className="">
             <input
@@ -205,21 +172,7 @@ const editDriver = () => {
               ))}
             </datalist>
           </div>
-          {/* <Autocomplete
-            dir="rtl"
-            disablePortal
-            id="combo-box-demo"
-            options={cities}
-            sx={{
-              width: 1,
-              bgcolor: "white",
-              borderRadius: "16px",
-              border: "none",
-            }}
-            renderInput={(params) => (
-              <TextField {...params} placeholder="شهر محل سکونت شما" />
-            )}
-          /> */}
+
           <Box className="gender-picker">
             <FormControl
               sx={{

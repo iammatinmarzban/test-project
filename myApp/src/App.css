@@ -31,6 +31,12 @@ input {
   color:#B3B5BD;
   font-size:16px;
   font-weight:500;
-
-
+}
+input::after{
+  border:none;
+}
+label{
+  font-size: 12px;
+  color:#9496A1;
+  text-align: right;
 }

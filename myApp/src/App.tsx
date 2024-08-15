@@ -30,9 +30,6 @@ const Drivers = [
   },
 ];
 
-// I don't know how to add custom fonts to it.
-// I will add the fonts later ok?!
-
 function App() {
   return (
     <Container
@@ -56,9 +53,8 @@ function App() {
           {Drivers.map((i) => (
             <DriverCard
               name={i.name}
-              picture={""}
-              codeMeli={i.codeMeli}
-              phonenumber={i.phoneNumber}
+              codemeli={i.codeMeli}
+              birthdayDate={i.codeMeli}
             />
           ))}
         </Box>

@@ -27,10 +27,6 @@ const router = createBrowserRouter([
     path: "register-driver",
     element: <NewDriver />,
   },
-  {
-    path: "edit-driver",
-    element: <EditDriver />,
-  },
 ]);
 
 createRoot(document.getElementById("root")!).render(
