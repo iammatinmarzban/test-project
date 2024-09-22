@@ -12,21 +12,21 @@ import {
   Switch,
 } from "@mui/material";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
-import alt from "../assets/imageholder.png";
+import alt from "../assets/pictures/altforpic.png";
+import cities from "../json/cities.json";
 
-import cities from "../cities.json";
-export interface editDriverProps {
+export interface DriverProps {
   pictureUrl: string | null;
-  codemeli: number;
+  codemeli: string;
   name: string;
   lastName: string;
-  birthdayDate: number;
+  phoneNumber: string;
   city: string;
-  gender: boolean;
+  gender: string;
   status: boolean;
 }
 
-const editDriver = (props: editDriverProps) => {
+const editDriver = (props: DriverProps) => {
   return (
     <Container
       sx={{
@@ -157,8 +157,8 @@ const editDriver = (props: editDriverProps) => {
           <input value={props.name} id="name" />
           <label htmlFor="lastName">نام خانوادگی</label>
           <input value={props.lastName} id="lasName" />
-          <label htmlFor="birthDate">تاریخ تولد</label>
-          <input value={props.birthdayDate} id="birthDate" />
+          <label htmlFor="birthDate"> شماره تلفن</label>
+          <input value={props.phoneNumber} id="phoneNumber" />
 
           <div className="">
             <input

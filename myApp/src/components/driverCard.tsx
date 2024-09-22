@@ -1,17 +1,31 @@
 import { Avatar, Box, Button, SvgIcon, Typography } from "@mui/material";
-import icon from "/Users/Hkr/Desktop/test project/myApp/src/assets/icon.svg";
+import icon from "../assets/svg/icon.svg";
 import DriveFileRenameOutlineIcon from "@mui/icons-material/DriveFileRenameOutline";
 import { useState } from "react";
-import { editDriverProps } from "./editDriver";
+// import { useNavigate } from "react-router-dom";
 
-// interface drivercard {
-//   name: string;
-//   picture: string | null;
-//   codeMeli: number;
-//   phonenumber: string;
-// }
+// import editForm from "../editForm";
+// import { editDriverProps } from "./editDriver";
 
-const driverCard = (props: editDriverProps) => {
+export interface drivercard {
+  name: string;
+  picture: string | null;
+  codeMeli: string;
+  phonenumber: string;
+}
+export let clickedObj = {
+  name: "reza",
+  birthdayDate: "81/6/4",
+  codemeli: "0123456789",
+  pictureUrl: "",
+  lastName: "mahmoodi",
+  city: "yazd",
+  gender: "true",
+  status: false,
+};
+
+const driverCard = (props: drivercard) => {
+  // const navigate = useNavigate();
   const [isClicked, setIsClicked] = useState(false);
   return (
     <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
@@ -50,6 +64,11 @@ const driverCard = (props: editDriverProps) => {
             <Typography>حذف</Typography>
           </Button>
           <Button
+            onClick={() => {
+              // editForm();
+              console.log("clicked");
+              console.log(clickedObj);
+            }}
             sx={{
               width: "76px",
               height: "36px",
@@ -86,7 +105,10 @@ const driverCard = (props: editDriverProps) => {
           sx={{ display: "flex", alignItems: "center" }}
           className="right-side"
         >
-          <Avatar alt="Name" src={icon} />
+          <Avatar
+            alt={props.name}
+            src={`${props.picture}?${props.picture}:${icon}`}
+          />
         </Box>
         <Box
           className="left-side"
@@ -112,12 +134,12 @@ const driverCard = (props: editDriverProps) => {
               {props.name}
             </Typography>
             <Typography sx={{ color: "#777986", fontSize: "13px" }}>
-              {props.birthdayDate}
+              {props.phonenumber}
             </Typography>
           </Box>
           <Box className="down">
             <Typography sx={{ color: "#777986", fontSize: "13px", mt: "8px" }}>
-              کد ملی : {props.codemeli}
+              کد ملی : {props.codeMeli}
             </Typography>
           </Box>
         </Box>

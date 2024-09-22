@@ -1,0 +1,68 @@
+[
+    {
+        "name": {
+            "firstName": "جان",
+            "lastName": "دو"
+        },
+        "socialSecurityNumber": "۱۲۳-۴۵-۶۷۸۹",
+        "residentialCity": "نیویورک",
+        "gender": "مرد",
+        "phoneNumber": "+۱-۵۵۵-۰۱۰۱",
+        "pictureUrl": "https://example.com/images/john_doe.jpg"
+    },
+    {
+        "name": {
+            "firstName": "جین",
+            "lastName": "اسمیت"
+        },
+        "socialSecurityNumber": "۹۸۷-۶۵-۴۳۲۱",
+        "residentialCity": "لس آنجلس",
+        "gender": "زن",
+        "phoneNumber": "+۱-۵۵۵-۰۲۰۲",
+        "pictureUrl": "https://example.com/images/jane_smith.jpg"
+    },
+    {
+        "name": {
+            "firstName": "الکس",
+            "lastName": "جانسون"
+        },
+        "socialSecurityNumber": "۵۵۵-۵۵-۵۵۵۵",
+        "residentialCity": "شیکاگو",
+        "gender": "غیر دوتایی",
+        "phoneNumber": "+۱-۵۵۵-۰۳۰۳",
+        "pictureUrl": "https://example.com/images/alex_johnson.jpg"
+    },
+    {
+        "name": {
+            "firstName": "جان",
+            "lastName": "دو"
+        },
+        "socialSecurityNumber": "۱۲۳-۴۵-۶۷۸۹",
+        "residentialCity": "نیویورک",
+        "gender": "مرد",
+        "phoneNumber": "+۱-۵۵۵-۰۱۰۱",
+        "pictureUrl": "https://example.com/images/john_doe.jpg"
+    },
+    {
+        "name": {
+            "firstName": "جین",
+            "lastName": "اسمیت"
+        },
+        "socialSecurityNumber": "۹۸۷-۶۵-۴۳۲۱",
+        "residentialCity": "لس آنجلس",
+        "gender": "زن",
+        "phoneNumber": "+۱-۵۵۵-۰۲۰۲",
+        "pictureUrl": "https://example.com/images/jane_smith.jpg"
+    },
+    {
+        "name": {
+            "firstName": "الکس",
+            "lastName": "جانسون"
+        },
+        "socialSecurityNumber": "۵۵۵-۵۵-۵۵۵۵",
+        "residentialCity": "شیکاگو",
+        "gender": "غیر دوتایی",
+        "phoneNumber": "+۱-۵۵۵-۰۳۰۳",
+        "pictureUrl": "https://example.com/images/alex_johnson.jpg"
+    }
+]

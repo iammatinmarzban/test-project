@@ -1,34 +1,10 @@
 import "./App.css";
-
-// import { Fragment } from "react/jsx-runtime";
 import Box from "@mui/material/Box";
-// import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { Button, Container, CssBaseline } from "@mui/material";
 import DriverCard from "./components/driverCard";
-
-const Drivers = [
-  {
-    name: "عباس احمد پور",
-    codeMeli: 1276564301,
-    phoneNumber: "09123556879",
-  },
-  {
-    name: "عباس احمد پور",
-    codeMeli: 1276564301,
-    phoneNumber: "09123556879",
-  },
-  {
-    name: "عباس احمد پور",
-    codeMeli: 1276564301,
-    phoneNumber: "09123556879",
-  },
-  {
-    name: "عباس احمد پور",
-    codeMeli: 1276564301,
-    phoneNumber: "09123556879",
-  },
-];
+import users from "./testUsers.json";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
@@ -50,11 +26,12 @@ function App() {
           لیست رانندگان
         </Typography>
         <Box>
-          {Drivers.map((i) => (
+          {users.map((i) => (
             <DriverCard
-              name={i.name}
-              codemeli={i.codeMeli}
-              birthdayDate={i.codeMeli}
+              name={i.name.firstName}
+              codeMeli={i.socialSecurityNumber}
+              phonenumber={i.phoneNumber}
+              picture={i.pictureUrl}
             />
           ))}
         </Box>
@@ -74,12 +51,7 @@ function App() {
           variant="contained"
           className="submit-button"
         >
-          <Typography
-            variant="button"
-            sx={{ fontSize: "16px", fontFamily: "iransans", fontWeight: "600" }}
-          >
-            افزودن راننده
-          </Typography>
+          <Link to="/register-driver">افزودن راننده</Link>
         </Button>
       </Box>
     </Container>
