@@ -6,28 +6,41 @@ import {
   SvgIcon,
   Switch,
 } from "@mui/material";
-// import alt from "../assets/pictures/altforpic.png";
+import { SubmitHandler, useForm } from "react-hook-form";
 import alt from "../assets/pictures/altforpic.png";
 import cities from "../json/cities.json";
-import { useState } from "react";
-import { DriverProps } from "./editDriver";
+// import { useState } from "react";
+// import { DriverProps } from "./editDriver";
+// import { useStore } from "./store";
 
 const newDriver = () => {
+  type FormFields = {
+    codemeli: string;
+    name: string;
+    lastName: string;
+    phoneNumber: string;
+    city: string;
+    isMale: string;
+  };
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormFields>();
+
+  const onSubmit: SubmitHandler<FormFields> = (data) => {
+    console.log(data);
+  };
+  // const addDriver = useStore((state) => state.addDriver);
+  // const { drivers, addDriver, removeDriver, updateDriver };
   // I'm not familiar with the Typescript syntaxt used in the line below -- just copied -- I understand it but I don't know why it's working or how it's working --
+  // const [inputs, setInput] = useState<DriverProps>({} as DriverProps);
 
-  const [inputs, setInput] = useState<DriverProps>({} as DriverProps);
-
-  const handleInputChange = (e: any) => {
-    const { name, value } = e.target;
-    setInput({ ...inputs, [name]: value });
-    console.log(isFormComplete);
-  };
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-
-    console.log("final Object:", inputs);
-    console.log(isFormComplete);
-  };
+  // const handleInputChange = (e: any) => {
+  //   const { name, value } = e.target;
+  //   setInput({ ...inputs, [name]: value });
+  // console.log(isFormComplete);
+  // };
 
   const isFormComplete = false;
 
@@ -57,7 +70,7 @@ const newDriver = () => {
             لیست رانندگان/ ثبت راننده جدید
           </Typography>
         </Box>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <Box
             sx={{
               mb: "40px",
@@ -108,32 +121,14 @@ const newDriver = () => {
               sx={{ w: 1, display: "flex", gap: "8px", alignItems: "baseline" }}
             >
               <input
-                value={inputs.codemeli}
+                {...register("codemeli", { required: true })}
+                // value={inputs.codemeli}
                 name="codemeli"
                 placeholder="کدملی"
-                onChange={handleInputChange}
+                // onChange={handleInputChange}
                 minLength={10}
                 maxLength={10}
-                required
               />
-
-              {/* <ThemeProvider theme={theme}>
-              <TextField
-                dir="rtl"
-                placeholder="کدملی"
-                sx={{
-                  border: 0,
-                  bgcolor: "white",
-                  width: "267px",
-                  height: "48px",
-                  p: "12px 16px",
-                  borderRadius: "16px",
-                  borderWidth: 0,
-                  borderColor: "white",
-                }}
-                required
-              />
-            </ThemeProvider> */}
 
               <Button
                 sx={{
@@ -147,47 +142,40 @@ const newDriver = () => {
                 <Typography>استعلام</Typography>
               </Button>
             </Box>
-            {/* <GlobalStyles
-            styles={{
-              input: { border: "none", widht: "390px", height: "48px" },
-            }}
-          />
-          <input placeholder="تست" /> */}
-            {/* <TextField dir="rtl" sx={{ width: 1 }} /> */}
-            {/* <TextField dir="rtl" sx={{ width: 1 }} />
-          <TextField dir="rtl" sx={{ width: 1 }} /> */}
-
             <input
+              {...register("name", { required: true })}
               name="name"
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               placeholder="نام"
               required
-              value={inputs.name}
+              // value={inputs.name}
             />
+            {errors.name && <p>please check the Name property</p>}
             <input
-              value={inputs.lastName}
+              {...register("lastName", { required: true })}
+              // value={inputs.lastName}
               required
               name="lastName"
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               placeholder="نام خانوادگی"
             />
             <input
-              value={inputs.phoneNumber}
-              required
+              {...register("phoneNumber", { required: false })}
+              // value={inputs.phoneNumber}
               name="phoneNumber"
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               placeholder="شماره تلفن"
             />
 
             <div className="">
               <input
-                value={inputs.city}
+                {...register("city", { required: true })}
+                // value={inputs.city}
                 name="city"
-                onChange={handleInputChange}
+                // onChange={handleInputChange}
                 list="cities"
                 type="search"
                 placeholder="شهر محل سکونت شما"
-                required
               />
               <datalist id="cities">
                 {cities.map((city) => (
@@ -216,19 +204,21 @@ const newDriver = () => {
               >
                 <Box sx={{ display: "flex" }}>
                   <input
-                    value={"woman"}
+                    {...register("isMale", { required: true })}
+                    // value={"woman"}
                     type="radio"
                     name="gender-picker"
-                    onChange={handleInputChange}
+                    // onChange={handleInputChange}
                   />
                   <label className="radio">زن</label>
                 </Box>
                 <Box sx={{ display: "flex" }}>
                   <input
-                    value={"man"}
+                    {...register("isMale", { required: true })}
+                    // value={"man"}
                     type="radio"
                     name="gender-picker"
-                    onChange={handleInputChange}
+                    // onChange={handleInputChange}
                   />
                   <label className="radio">مرد</label>
                 </Box>
@@ -281,8 +271,8 @@ const newDriver = () => {
               <Typography>وضعیت کاربر</Typography>
               <Switch
                 name="status"
-                onChange={handleInputChange}
-                value={inputs.status}
+                // onChange={handleInputChange}
+                //  value={1}
               />
             </Box>
           </Box>
